@@ -1,0 +1,30 @@
+nav {
+    background-color: transparent !important;
+    padding-left: 10px;
+    height: 70px !important;
+
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        h2 {
+            margin: 0;
+            font-size: 30px;
+            font-weight: bold;
+            color: #1ED760;
+        }
+
+        img {
+            height: 50px;
+            width: auto;
+        }
+    }
+
+    .navbar-end{
+        .navbar-item img{
+            height: 50px;
+            width: auto;
+        }
+    }
+}
