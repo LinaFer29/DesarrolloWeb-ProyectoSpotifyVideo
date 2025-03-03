@@ -1,8 +1,9 @@
-
 @use "../node_modules/bulma/bulma.scss";
 @use "../sass/components/body";
 @use "../sass/components/container";
 @use "../sass/components/header";
+@use "../sass/components/carousel";
+
 
 .card {
     width: 400px;

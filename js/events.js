@@ -60,5 +60,23 @@ document.addEventListener('DOMContentLoaded', () => {
       if(event.key === "Escape") {
         closeAllModals();
       }
+    });  
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Inicialización de Swiper para cada sección
+    const swipers = document.querySelectorAll(".swiper");
+  
+    swipers.forEach((swiperElement) => {
+      new Swiper(swiperElement, {
+        slidesPerView: "auto", // Muestra varios slides a la vez
+        spaceBetween: 10, // Espacio entre slides
+        navigation: {
+          nextEl: swiperElement.querySelector(".swiper-button-next"),
+          prevEl: swiperElement.querySelector(".swiper-button-prev"),
+        },
+        loop: true, // Hace que el carrusel sea infinito
+      });
     });
   });
+  
