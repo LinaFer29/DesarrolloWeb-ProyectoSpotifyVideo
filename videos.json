@@ -1,0 +1,11 @@
+{
+  "videos": [
+    { "nombre": "Video 1", "url": "../videos/V.mp4" },
+    { "nombre": "Video 2", "url": "../videos/V.mp4" },
+    { "nombre": "Video 3", "url": "../videos/V.mp4" },
+    { "nombre": "Video 4", "url": "../videos/V.mp4" },
+    { "nombre": "Video 5", "url": "../videos/V.mp4" },
+    { "nombre": "Video 6", "url": "../videos/V.mp4" },
+    { "nombre": "Video 7", "url": "../videos/V.mp4" }
+  ]
+}

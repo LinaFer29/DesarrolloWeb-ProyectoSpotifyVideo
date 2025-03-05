@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "bulma": "^1.0.3",
-    "sass": "^1.85.1"
+    "sass": "^1.85.1",
+    "swiper": "^11.2.5"
   }
 }

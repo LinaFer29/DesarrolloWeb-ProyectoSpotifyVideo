@@ -21711,6 +21711,39 @@ nav .navbar-end .navbar-item img {
   opacity: 1;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal .modal-content {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+}
+.modal .modal-content img {
+  max-width: 90%;
+  max-height: 90vh;
+}
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
 .card {
   width: 400px;
   height: auto;

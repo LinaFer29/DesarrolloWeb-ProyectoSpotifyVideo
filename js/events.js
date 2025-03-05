@@ -1,17 +1,16 @@
+import Swiper from "swiper";
+import "swiper/css";
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
   
     // Add a click event on each of them
     $navbarBurgers.forEach( el => {
       el.addEventListener('click', () => {
   
-        // Get the target from the "data-target" attribute
         const target = el.dataset.target;
         const $target = document.getElementById(target);
   
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
         el.classList.toggle('is-active');
         $target.classList.toggle('is-active');
   
@@ -64,19 +63,65 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.addEventListener("DOMContentLoaded", function () {
-    // Inicialización de Swiper para cada sección
-    const swipers = document.querySelectorAll(".swiper");
-  
-    swipers.forEach((swiperElement) => {
-      new Swiper(swiperElement, {
-        slidesPerView: "auto", // Muestra varios slides a la vez
+    console.log("Swiper cargando...");
+
+    const swiper = new Swiper(".swiper", {
+        slidesPerView: 3, // Cantidad de slides visibles
         spaceBetween: 10, // Espacio entre slides
+        loop: true, // Repetición infinita
         navigation: {
-          nextEl: swiperElement.querySelector(".swiper-button-next"),
-          prevEl: swiperElement.querySelector(".swiper-button-prev"),
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         },
-        loop: true, // Hace que el carrusel sea infinito
-      });
     });
+
+    console.log("Swiper cargado correctamente", swiper);
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  alert("El script events.js se está ejecutando");
+  console.log("Script cargado correctamente"); // Confirmación de que el script está corriendo
+
+  const modal = document.getElementById("imageModal");
+  const modalImage = document.getElementById("modalImage");
+  const closeModal = document.querySelector("#imageModal .close");
+
+  if (!modal) {
+      console.error("❌ No se encontró el modal");
+      return;
+  }
+  if (!closeModal) {
+      console.error("❌ No se encontró el botón de cierre");
+      return;
+  }
+
+  // Agregar eventos a las imágenes dentro de Swiper
+  document.querySelectorAll(".swiper-slide img").forEach(img => {
+      img.addEventListener("click", function () {
+          console.log(" Imagen clickeada:", img.src);
+          modalImage.src = img.src; // Coloca la imagen clickeada en el modal
+          modal.style.display = "flex";
+      });
   });
+
+  // Evento para cerrar el modal al hacer clic en la "X"
+  closeModal.addEventListener("click", function () {
+      console.log("🆗 Cerrando modal...");
+      modal.style.display = "none";
+  });
+
+  // Cerrar modal al hacer clic fuera del contenido
+  modal.addEventListener("click", function (event) {
+      if (event.target === modal) {
+          console.log("🆗 Cerrando modal por clic fuera...");
+          modal.style.display = "none";
+      }
+  });
+});
+
+   
+
+  
   
