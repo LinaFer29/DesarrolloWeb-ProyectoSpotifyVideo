@@ -1,5 +1,7 @@
-import Swiper from "swiper";
-import "swiper/css";
+console.log("✅ events.js cargado correctamente");
+
+//import Swiper from "swiper";
+//import "swiper/css";
 document.addEventListener('DOMContentLoaded', () => {
 
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
@@ -82,40 +84,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener("DOMContentLoaded", function () {
   alert("El script events.js se está ejecutando");
-  console.log("Script cargado correctamente"); // Confirmación de que el script está corriendo
+  console.log("Script cargado correctamente"); 
 
   const modal = document.getElementById("imageModal");
   const modalImage = document.getElementById("modalImage");
   const closeModal = document.querySelector("#imageModal .close");
 
   if (!modal) {
-      console.error("❌ No se encontró el modal");
+      console.error(" No se encontró el modal");
       return;
   }
   if (!closeModal) {
-      console.error("❌ No se encontró el botón de cierre");
+      console.error(" No se encontró el botón de cierre");
       return;
   }
 
-  // Agregar eventos a las imágenes dentro de Swiper
   document.querySelectorAll(".swiper-slide img").forEach(img => {
       img.addEventListener("click", function () {
           console.log(" Imagen clickeada:", img.src);
-          modalImage.src = img.src; // Coloca la imagen clickeada en el modal
+          modalImage.src = img.src; 
           modal.style.display = "flex";
       });
   });
 
-  // Evento para cerrar el modal al hacer clic en la "X"
+  
   closeModal.addEventListener("click", function () {
-      console.log("🆗 Cerrando modal...");
+      console.log(" Cerrando modal...");
       modal.style.display = "none";
   });
 
-  // Cerrar modal al hacer clic fuera del contenido
   modal.addEventListener("click", function (event) {
       if (event.target === modal) {
-          console.log("🆗 Cerrando modal por clic fuera...");
+          console.log(" Cerrando modal por clic fuera...");
           modal.style.display = "none";
       }
   });
