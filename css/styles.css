@@ -21642,7 +21642,7 @@ nav .navbar-end .navbar-item img {
   width: 250px;
   flex-shrink: 0;
   background: #111;
-  padding: 20px;
+  padding: 25px;
   color: white;
 }
 
@@ -21651,13 +21651,13 @@ nav .navbar-end .navbar-item img {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding: 20px;
+  padding: 30px;
   gap: 20px;
 }
 
 .swiper-container {
   width: calc(100% - 250px);
-  max-width: 1000px;
+  max-width: 1100px;
   display: flex;
   flex-direction: column;
   margin-left: auto;
@@ -21667,20 +21667,23 @@ nav .navbar-end .navbar-item img {
 
 .swiper {
   background: #383e44;
-  padding: 20px;
+  max-width: none;
+  padding: 40px;
   border-radius: 12px;
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
 }
 .swiper .swiper-wrapper {
   display: flex;
   align-items: center;
   gap: 15px;
+  padding-right: 30px;
 }
 .swiper .swiper-slide {
   width: 200px;
@@ -21689,6 +21692,7 @@ nav .navbar-end .navbar-item img {
   background: rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   transition: transform 0.3s ease;
 }
 .swiper .swiper-slide img {
@@ -21720,7 +21724,6 @@ nav .navbar-end .navbar-item img {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -21742,6 +21745,40 @@ nav .navbar-end .navbar-item img {
   font-size: 30px;
   color: white;
   cursor: pointer;
+}
+
+.genres-section {
+  background: linear-gradient(135deg, #222, #444);
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  width: 73%;
+  margin-left: auto;
+  margin-right: 25px;
+}
+.genres-section h2 {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.genres-section .genres {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.genres-section .genre-btn {
+  background: linear-gradient(135deg, #444, #666);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.genres-section .genre-btn:hover {
+  background: linear-gradient(135deg, #666, #888);
 }
 
 .card {

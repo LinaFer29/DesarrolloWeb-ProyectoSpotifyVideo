@@ -75,6 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
+        autoplay: {
+            delay: 2000, // Tiempo entre cada desplazamiento automático
+            //disableOnInteraction: false, // 🔹 Permite que siga en auto después de un clic
+        },
     });
 
     console.log("Swiper cargado correctamente", swiper);
@@ -82,8 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
 document.addEventListener("DOMContentLoaded", function () {
-  alert("El script events.js se está ejecutando");
   console.log("Script cargado correctamente"); 
 
   const modal = document.getElementById("imageModal");

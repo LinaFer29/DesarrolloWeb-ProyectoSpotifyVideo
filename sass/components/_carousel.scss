@@ -13,7 +13,7 @@ $sidebar-width: 250px;
   width: $sidebar-width;
   flex-shrink: 0;
   background: #111;
-  padding: 20px;
+  padding: 25px;
   color: white;
 }
 
@@ -22,13 +22,13 @@ $sidebar-width: 250px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding: 20px;
+  padding: 30px;
   gap: 20px;
 }
 
 .swiper-container {
     width: calc(100% - $sidebar-width);
-    max-width: 1000px;
+    max-width: 1100px;
     display: flex;
     flex-direction: column;
     margin-left: auto;
@@ -38,20 +38,23 @@ $sidebar-width: 250px;
 
 .swiper {
   background: $card-bg;
-  padding: 20px;
+  max-width: none;
+  padding: 40px;
   border-radius: $border-radius;
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
 
   .swiper-wrapper {
     display: flex;
     align-items: center;
     gap: 15px;
+    padding-right: 30px;
   }
 
   .swiper-slide {
@@ -61,6 +64,7 @@ $sidebar-width: 250px;
     background: rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
+    flex-shrink: 0;
     transition: transform 0.3s ease;
 
     img {
