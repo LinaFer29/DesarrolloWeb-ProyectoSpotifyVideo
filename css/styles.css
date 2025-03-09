@@ -21582,6 +21582,7 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 26px;
+  justify-content: center;
   align-items: center;
 }
 .layout .sidebar .sidebar-item .button {
@@ -21594,8 +21595,10 @@ html, body {
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   display: flex;
-  justify-content: left;
+  flex-direction: row;
   gap: 10px;
+  justify-content: left;
+  align-items: center;
 }
 .layout .sidebar .sidebar-item .button img {
   height: 31px;
@@ -21639,8 +21642,10 @@ html, body {
 }
 .layout .content .swiper .swiper-wrapper {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   gap: 15px;
+  justify-content: none;
+  align-items: center;
   padding-right: 30px;
 }
 .layout .content .swiper .swiper-slide {
@@ -21776,21 +21781,7 @@ html, body {
     align-items: center;
   }
   .layout .sidebar {
-    background: linear-gradient(to right, rgba(31, 31, 31, 0.7), rgba(186, 186, 186, 0.3));
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-    width: 100vw !important;
-    max-width: 100% !important;
     height: 90px;
-    position: fixed;
-    inset: auto 0 0 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-    border-right: none;
-    z-index: 1000;
-    overflow: hidden;
   }
   .layout .sidebar .sidebar-item {
     flex-direction: row;

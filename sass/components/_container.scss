@@ -1,6 +1,51 @@
 $card-bg: linear-gradient(to right, rgba(31, 31, 31, 0.7), rgba(186, 186, 186, 0.3));
 $border-radius: 5px;
 
+@mixin glassmorphism($bg, $blur: 5px) {
+    background: $bg;
+    -webkit-backdrop-filter: blur($blur);
+    backdrop-filter: blur($blur);
+}
+
+@mixin flex($direction: row, $gap: 0px,$justify,$align) {
+    display: flex;
+    flex-direction: $direction;
+    gap: $gap;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin buttonStyle($width: 240px, $padding: 30px, $border-radius: 20px) {
+    max-width: $width !important;
+    width: 100%;
+    padding-left: $padding;
+    border: 0;
+    border-radius: $border-radius;
+}
+
+@mixin swiperSlide($size: 175px) {
+    width: 200px;
+    height: $size;
+    border-radius: $border-radius;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: $border-radius;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+
 .layout {
     display: flex;
     height: 100vh;
@@ -21,23 +66,12 @@ $border-radius: 5px;
         .sidebar-item {
             padding-top: 50px;
             padding-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 26px; // Espacio entre los botones
-            align-items: center;
+            @include flex(column, 26px,center,center);
 
             .button {
-                max-width: 240px !important;
-                width: 100%;
-                padding-left: 30px;
-                border: 0;
-                border-radius: 20px;
-                background: linear-gradient(to right, rgba(31, 31, 31, 0.7), rgba(186, 186, 186, 0.3));
-                -webkit-backdrop-filter: blur(5px);
-                backdrop-filter: blur(5px);
-                display: flex;
-                justify-content: left;
-                gap: 10px;
+                @include buttonStyle();
+                @include glassmorphism($card-bg);
+                @include flex(row, 10px,left,center);
 
                 img {
                     height: 31px;
@@ -71,9 +105,7 @@ $border-radius: 5px;
         .swiper {
             margin-left: auto;
             margin-right: 25px;
-            background: $card-bg;
-            -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
+            @include glassmorphism($card-bg);
             padding: 40px;
             border-radius: $border-radius;
             width: 100%;
@@ -86,32 +118,15 @@ $border-radius: 5px;
             box-sizing: border-box;
 
             .swiper-wrapper {
-                display: flex;
-                align-items: center;
-                gap: 15px;
+                // display: flex;
+                // align-items: center;
+                // gap: 15px;
+                @include flex(row,15px,none,center);
                 padding-right: 30px;
             }
 
             .swiper-slide {
-                width: 200px;
-                height: 175px;
-                border-radius: $border-radius;
-                background: rgba(255, 255, 255, 0.15);
-                display: flex;
-                align-items: center;
-                flex-shrink: 0;
-                transition: transform 0.3s ease;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    border-radius: $border-radius;
-                }
-
-                &:hover {
-                    transform: scale(1.05);
-                }
+                @include swiperSlide();
             }
 
             .swiper-button-next,
@@ -137,9 +152,7 @@ $border-radius: 5px;
         align-items: center;
 
         .sidebar {
-            background: linear-gradient(to right, rgba(31, 31, 31, 0.7), rgba(186, 186, 186, 0.3));
-            -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
+            @include glassmorphism($card-bg);
             width: 100vw !important;
             max-width: 100% !important;
             height: 150px;
@@ -255,22 +268,7 @@ $border-radius: 5px;
         align-items: center;
 
         .sidebar {
-            background: linear-gradient(to right, rgba(31, 31, 31, 0.7), rgba(186, 186, 186, 0.3));
-            -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
-            width: 100vw !important;
-            max-width: 100% !important;
             height: 90px;
-            position: fixed;
-            inset: auto 0 0 0;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 10px;
-            border-right: none;
-            z-index: 1000; // Asegura que quede por encima del contenido
-            overflow: hidden;
-
             .sidebar-item {
                 flex-direction: row; // Cambia de columna a fila
                 padding: 0;
