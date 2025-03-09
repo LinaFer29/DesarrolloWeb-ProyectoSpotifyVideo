@@ -25,9 +25,8 @@ $text-color: white;
     text-align: center;
     border-radius: 10px; 
 
-    width: 73%;  
-    margin-left: auto;  
-    margin-right: 25px; 
+    width: 1050px;
+    margin-top: 20px;  
 
     h2 {
         color: $text-color;
@@ -45,4 +44,31 @@ $text-color: white;
     .genre-btn {
         @include button-style;  // Aplica el mixin
     }
+}
+
+@media (max-width: 1360px){
+    .genres-section{
+        margin-right: 0 !important;
+        width: 1200px;
+    }
+}
+
+@media (max-width: 1241px){
+
+    .genres-section{
+        margin-right: 0 !important;
+        align-items: center !important;
+        width: 1000px;
+    }
+
+}
+
+@media (max-width: 767px){
+
+    .genres-section{
+        margin-right: 0 !important;
+        align-items: center !important;
+        width: 390px;
+    }
+
 }

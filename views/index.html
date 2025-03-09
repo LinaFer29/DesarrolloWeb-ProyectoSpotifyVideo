@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Spotify Video</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
   <link rel="stylesheet" href="../css/styles.css">
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
@@ -22,13 +22,6 @@
         <h2>Spotify Video</h2>
 
       </a>
-
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
     </div>
     <div class="navbar-end">
       <div class="navbar-item">
@@ -38,94 +31,105 @@
     </div>
   </nav>
 
-  <!-- Barra Navegación -->
-  <div class="container">
-    <div class="container-item">
-      <button class="button is-normal">
-        <img src="../imgs/icon-inicio.png" alt="icon-inicio">
-        <p>Inicio</p>
-      </button>
-      <button class="button is-normal">
-        <img src="../imgs/icon-buscar.png" alt="icon-buscar">
-        <p>Buscar</p>
-      </button>
-      <button class="button is-normal">
-        <img src="../imgs/icon-libreria.png" alt="icon-libreria">
-        <p>Tu Libreria</p>
-      </button>
+  <!-- Barra Latera -->
+   <div class="layout">
+     <div class="sidebar">
+       <div class="sidebar-item">
+         <button class="button is-normal">
+           <img src="../imgs/icon-inicio.png" alt="icon-inicio">
+           <p>Inicio</p>
+         </button>
+         <button class="button is-normal">
+           <img src="../imgs/icon-buscar.png" alt="icon-buscar">
+           <p>Buscar</p>
+         </button>
+         <button class="button is-normal">
+           <img src="../imgs/icon-libreria.png" alt="icon-libreria">
+           <p>Tu Libreria</p>
+         </button>
+         <button class="button is-normal">
+           <img src="../imgs/icon-crear.png" alt="icon-crear">
+           <p>Crear Playlist</p>
+         </button>
+         <button class="button is-normal">
+           <img src="../imgs/icon-favorito.png" alt="icon-favorito">
+           <p>Favoritos</p>
+         </button>
+       </div>
+       <div class="bar"></div>
+       <div class="sidebar-item">
+         <p>Video 1</p>
+         <p>Video 2</p>
+         <p>Video 3</p>
+       </div>
+     </div>
+     <div class="content">
+       <section>
+         <h3>Descubre Algo Nuevo</h3>
+         <div class="swiper mySwiper">
+           <div class="swiper-wrapper">
+             <div class="swiper-slide"><img src="https://img.youtube.com/vi/ZM_Gamwxvtc/0.jpg" alt="Video 1"></div>
+             <div class="swiper-slide"><img src="https://img.youtube.com/vi/kgO3TbjFiuY/0.jpg" alt="Video 2"></div>
+             <div class="swiper-slide"><img src="https://img.youtube.com/vi/yXZd7xVdpJ0/0.jpg" alt="Video 3"></div>
+             <div class="swiper-slide"><img src="https://img.youtube.com/vi/iawgB2CDCrw/0.jpg" alt="Video 4"></div>
+             <div class="swiper-slide"><img src="https://img.youtube.com/vi/v4pOiXg6ZN0/0.jpg" alt="Video 5"></div>
+             <div class="swiper-slide"><img src="https://img.youtube.com/vi/gqPg9buCMqs/0.jpg" alt="Video 6"></div>
+             <div class="swiper-slide"><img src="https://img.youtube.com/vi/2ET4VgCpJ2k/0.jpg" alt="Video 7"></div>
+             <div class="swiper-slide"><img src="https://img.youtube.com/vi/-VbQnxzgmS8/0.jpg" alt="Video 8"></div>
+           </div>
+           <div class="swiper-pagination"></div>
+           <div class="swiper-button-next"></div>
+           <div class="swiper-button-prev"></div>
+         </div>
+       </section>
+   
+       <section>
+         <h3>Lo Más Escuchado</h3>
+         <div class="swiper mySwiper">
+           <div class="swiper-wrapper">
+             <div class="swiper-slide"><img src="https://img.youtube.com/vi/rhcc1KQlCS4/0.jpg" alt="Video 9"></div>
+             <div class="swiper-slide"><img src="https://img.youtube.com/vi/N3xIf0lfrJo/0.jpg" alt="Video 10"></div>
+             <div class="swiper-slide"><img src="https://img.youtube.com/vi/7aYT9ywdU7k/0.jpg" alt="Video 11"></div>
+             <div class="swiper-slide"><img src="https://img.youtube.com/vi/2aAWT4J0Yh8/0.jpg" alt="Video 12"></div>
+             <div class="swiper-slide"><img src="https://img.youtube.com/vi/SqGrXzIPoQo/0.jpg" alt="Video 13"></div>
+             <div class="swiper-slide"><img src="https://img.youtube.com/vi/Kb-2xpEoKOk/0.jpg" alt="Video 14"></div>
+             <div class="swiper-slide"><img src="https://img.youtube.com/vi/vzQnEU6HPLE/0.jpg" alt="Video 15"></div>
+             <div class="swiper-slide"><img src="https://img.youtube.com/vi/plfzDG4fHG8/0.jpg" alt="Video 16"></div>
+           </div>
+           <div class="swiper-pagination"></div>
+           <div class="swiper-button-next"></div>
+           <div class="swiper-button-prev"></div>
+         </div>
+       </section>
+       <div class="genres-section">
+         <h2>Explora por Género</h2>
+         <div class="genres">
+             <button class="genre-btn">Pop</button>
+             <button class="genre-btn">Rock</button>
+             <button class="genre-btn">Hip-Hop</button>
+             <button class="genre-btn">Electrónica</button>
+             <button class="genre-btn">Reggaetón</button>
+             <button class="genre-btn">K-pop</button>
+         </div>
+       </div>
+     </div>
     </div>
-    <div class="container-item">
-      <button class="button is-normal">
-        <img src="../imgs/icon-crear.png" alt="icon-crear">
-        <p>Crear Playlist</p>
-      </button>
-      <button class="button is-normal">
-        <img src="../imgs/icon-favorito.png" alt="icon-favorito">
-        <p>Favoritos</p>
-      </button>
-    </div>
-    <div class="bar"></div>
-    <div class="container-item">
-      <p>Video 1</p>
-      <p>Video 2</p>
-      <p>Video 3</p>
-    </div>
-  </div>
 
-  <div class="content">
-    <section>
-      <h3>Descubre Algo Nuevo</h3>
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="../imgs/APT.webp" alt="Video 1"></div>
-          <div class="swiper-slide"><img src="../imgs/maxresdefault (1).jpg" alt="Video 2"></div>
-          <div class="swiper-slide"><img src="../imgs/maxresdefault.jpg" alt="Video 3"></div>
-          <div class="swiper-slide"><img src="../imgs/maxresdefault (2).jpg" alt="Video 4"></div>
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      </div>
-    </section>
 
-    <section>
-      <h3>Lo Más Escuchado</h3>
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="../imgs/maxresdefault.jpg" alt="Video 4"></div>
-          <div class="swiper-slide"><img src="../imgs/maxresdefault (1).jpg" alt="Video 5"></div>
-          <div class="swiper-slide"><img src="../imgs/APT.webp" alt="Video 6"></div>
-          <div class="swiper-slide"><img src="../imgs/maxresdefault (2).jpg" alt="Video 7"></div>
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      </div>
-    </section>
-  </div>
-
-  <div id="imageModal" class="modal">
+  <div id="videoModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <img id="modalImage" src="" alt="Imagen ampliada">
+        <div id="video-container">
+          <div id="video-player"></div> <!-- Aquí se insertará el video de YouTube -->
+      </div>
     </div>
   </div>
 
-  <div class="genres-section">
-    <h2>Explora por Género</h2>
-    <div class="genres">
-        <button class="genre-btn">Pop</button>
-        <button class="genre-btn">Rock</button>
-        <button class="genre-btn">Hip-Hop</button>
-        <button class="genre-btn">Electrónica</button>
-        <button class="genre-btn">Reggaetón</button>
-        <button class="genre-btn">K-pop</button>
-    </div>
-  </div>
 
   <script>
     console.log("JavaScript cargado correctamente");
   </script>
+  <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 
 </html>
