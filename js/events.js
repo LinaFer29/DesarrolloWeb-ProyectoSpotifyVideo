@@ -2,26 +2,9 @@ console.log("✅ events.js cargado correctamente");
 
 //import Swiper from "swiper";
 //import "swiper/css";
-document.addEventListener('DOMContentLoaded', () => {
 
-  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+function openAndCloseModal() {
 
-  // Add a click event on each of them
-  $navbarBurgers.forEach(el => {
-    el.addEventListener('click', () => {
-
-      const target = el.dataset.target;
-      const $target = document.getElementById(target);
-
-      el.classList.toggle('is-active');
-      $target.classList.toggle('is-active');
-
-    });
-  });
-
-});
-
-document.addEventListener('DOMContentLoaded', () => {
   // Functions to open and close a modal
   function openModal($el) {
     $el.classList.add('is-active');
@@ -62,11 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
       closeAllModals();
     }
   });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
+}
+
+function loadSwiper() {
   console.log("Swiper cargando...");
-
   const swiper = new Swiper(".swiper", {
     slidesPerView: 3, // Cantidad de slides visibles
     spaceBetween: 10, // Espacio entre slides
@@ -82,13 +65,56 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   console.log("Swiper cargado correctamente", swiper);
-});
+}
 
+async function loadCarrouselContent() {
+  console.log("cargando videos")
 
+  const swiperWrapperTop = document.querySelector("#top-swiper .swiper-wrapper");
+  const swiperWrapperBottom = document.querySelector("#bottom-swiper .swiper-wrapper");
+  try {
+    const response = await fetch("../resources/videos.json");
+    const videos = await response.json();
 
+    swiperWrapperTop.innerHTML = "";
 
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Script cargado correctamente");
+    for (let i = 0; i < 8; i++) {
+      const video = videos[i];
+      const slide = document.createElement("div");
+      slide.classList.add("swiper-slide");
+      const img = document.createElement("img");
+      img.src = video.thumbnail;
+      img.alt = video.title;
+      img.dataset.videoId = video.id; // Guardar ID del video para futuras interacciones
+
+      slide.appendChild(img);
+      swiperWrapperTop.appendChild(slide);
+
+    }
+
+    for (let i = (videos.length - 1); i >= 8; i--) {
+      const video = videos[i];
+      const slide = document.createElement("div");
+      slide.classList.add("swiper-slide");
+      const img = document.createElement("img");
+      img.src = video.thumbnail;
+      img.alt = video.title;
+      img.dataset.videoId = video.id; // Guardar ID del video para futuras interacciones
+
+      slide.appendChild(img);
+      swiperWrapperBottom.appendChild(slide);
+
+    }
+
+    console.log("videos:", videos)
+  } catch (error) {
+    console.error("Error al cargar los videos:", error);
+  }
+
+}
+
+function openAndCloseVideoModal() {
+  console.log("openAndCloseVideoModal");
 
   const modal = document.getElementById("videoModal");
   const modalImage = document.getElementById("modalImage");
@@ -103,37 +129,77 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  document.querySelectorAll(".swiper-slide img").forEach(img => {
-    img.addEventListener("click", function () {
-      console.log(" Imagen clickeada:", img.src);
-      // Obtener el ID del video desde la URL de la imagen de miniatura
-      const videoId = img.src.split("/vi/")[1].split("/")[0];
-      // Cambiar el video en el iframe
-      changeVideo(videoId);
-      if (!modal) {
-        console.error("No se encontró el modal con id 'videoModal'");
+  document.addEventListener("click", function (event) {
+    if (event.target.matches(".swiper-slide img")) {
+      console.log(" Imagen clickeada:", event.target.src);
+
+      const videoId = event.target.dataset.videoId; // Usamos el dataset asignado antes
+
+      if (!videoId) {
+        console.error("No se pudo obtener el ID del video.");
         return;
       }
-      modal.style.display = "flex";
-      //modal.classList.add("is-active");
-      console.log("Modal abierta con video:", videoId);
-    });
-  });
 
+      changeVideo(videoId);
+      modal.style.display = "flex";
+      console.log("Modal abierta con video:", videoId);
+    }
+  });
 
   closeModal.addEventListener("click", function () {
     console.log(" Cerrando modal...");
     modal.style.display = "none";
     player.stopVideo();
   });
+}
 
-  // modal.addEventListener("click", function (event) {
-  //   if (event.target === modal) {
-  //     console.log(" Cerrando modal por clic fuera...");
-  //     modal.style.display = "none";
-  //     player.stopVideo();
-  //   }
-  // });
+
+function abrirModal(idModal) {
+  document.getElementById(idModal).style.display = "flex";
+}
+
+function cerrarModal(idModal) {
+  document.getElementById(idModal).style.display = "none";
+}
+
+function openAndCloseButtonsModal() {
+  // Asigna eventos a los botones
+  document.getElementById("btnInicio").addEventListener("click", function () {
+    abrirModal("modalInicio");
+  });
+
+  document.getElementById("btnBuscar").addEventListener("click", function () {
+    abrirModal("modalBuscar");
+  });
+
+  document.getElementById("btnLibreria").addEventListener("click", function () {
+    abrirModal("modalLibreria");
+  });
+
+  document.getElementById("btnCrear").addEventListener("click", function () {
+    abrirModal("modalCrear");
+  });
+
+  document.getElementById("btnFavoritos").addEventListener("click", function () {
+    abrirModal("modalFavoritos");
+  });
+
+  // Cerrar modal cuando se haga clic en la "X"
+  document.querySelectorAll(".close").forEach(function (btnCerrar) {
+    btnCerrar.addEventListener("click", function () {
+      cerrarModal(this.parentElement.parentElement.id);
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  // Functions to open and close a modal
+  await loadCarrouselContent();
+  openAndCloseModal();
+  loadSwiper();
+  openAndCloseVideoModal();
+  openAndCloseButtonsModal();
+
 });
 
 let player;
@@ -164,51 +230,3 @@ function changeVideo(videoId) {
     });
   }
 }
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  function abrirModal(idModal) {
-    document.getElementById(idModal).style.display = "flex";
-  }
-
-  function cerrarModal(idModal) {
-    document.getElementById(idModal).style.display = "none";
-  }
-
-  // Asigna eventos a los botones
-  document.getElementById("btnInicio").addEventListener("click", function () {
-    abrirModal("modalInicio");
-  });
-
-  document.getElementById("btnBuscar").addEventListener("click", function () {
-    abrirModal("modalBuscar");
-  });
-
-  document.getElementById("btnLibreria").addEventListener("click", function () {
-    abrirModal("modalLibreria");
-  });
-
-  document.getElementById("btnCrear").addEventListener("click", function () {
-    abrirModal("modalCrear");
-  });
-
-  document.getElementById("btnFavoritos").addEventListener("click", function () {
-    abrirModal("modalFavoritos");
-  });
-
-  // Cerrar modal cuando se haga clic en la "X"
-  document.querySelectorAll(".close").forEach(function (btnCerrar) {
-    btnCerrar.addEventListener("click", function () {
-      cerrarModal(this.parentElement.parentElement.id);
-    });
-  });
-
-  // Cerrar modal si se hace clic fuera de él
-  window.addEventListener("click", function (event) {
-    document.querySelectorAll(".modal").forEach(function (modal) {
-      if (event.target === modal) {
-        cerrarModal(modal.id);
-      }
-    });
-  });
-});
