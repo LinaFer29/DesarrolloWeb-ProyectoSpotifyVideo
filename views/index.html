@@ -35,33 +35,58 @@
    <div class="layout">
      <div class="sidebar">
        <div class="sidebar-item">
-         <button class="button is-normal">
-           <img src="../imgs/icon-inicio.png" alt="icon-inicio">
-           <p>Inicio</p>
-         </button>
-         <button class="button is-normal">
-           <img src="../imgs/icon-buscar.png" alt="icon-buscar">
-           <p>Buscar</p>
-         </button>
-         <button class="button is-normal">
-           <img src="../imgs/icon-libreria.png" alt="icon-libreria">
-           <p>Tu Libreria</p>
-         </button>
-         <button class="button is-normal">
-           <img src="../imgs/icon-crear.png" alt="icon-crear">
-           <p>Crear Playlist</p>
-         </button>
-         <button class="button is-normal">
-           <img src="../imgs/icon-favorito.png" alt="icon-favorito">
-           <p>Favoritos</p>
-         </button>
+        <button class="button is-normal" id="btnInicio">
+          <img src="../imgs/icon-inicio.png" alt="icon-inicio">
+          <p>Inicio</p>
+        </button>
+        <button class="button is-normal" id="btnBuscar">
+          <img src="../imgs/icon-buscar.png" alt="icon-buscar">
+          <p>Buscar</p>
+        </button>
+        <button class="button is-normal" id="btnLibreria">
+          <img src="../imgs/icon-libreria.png" alt="icon-libreria">
+          <p>Tu Libreria</p>
+        </button>
+        <button class="button is-normal" id="btnCrear">
+          <img src="../imgs/icon-crear.png" alt="icon-crear">
+          <p>Crear Playlist</p>
+        </button>
+        <button class="button is-normal" id="btnFavoritos">
+          <img src="../imgs/icon-favorito.png" alt="icon-favorito">
+          <p>Favoritos</p>
+        </button>        
        </div>
        <div class="bar"></div>
-       <div class="sidebar-item">
-         <p>Video 1</p>
-         <p>Video 2</p>
-         <p>Video 3</p>
-       </div>
+       <div class="sidebar-item artists">
+        <div class="artist-item">
+          <img src="../imgs/michael.jpg" alt="Michael Gerow">
+          <div class="info">
+            <p class="nombre">Michael Gerow</p>
+            <p class="categoria">Artista</p>
+          </div>
+        </div>
+        <div class="artist-item">
+          <img src="../imgs/imagine.jpg" alt="Imagine Dragons">
+          <div class="info">
+            <p class="nombre">Imagine Dragons</p>
+            <p class="categoria">Artista</p>
+          </div>
+        </div>
+        <div class="artist-item">
+          <img src="../imgs/5_Second.jpg" alt="5 Seconds of Summer">
+          <div class="info">
+            <p class="nombre">5 Seconds of Summer</p>
+            <p class="categoria">Artista</p>
+          </div>
+        </div>
+        <div class="artist-item">
+          <img src="../imgs/lisa.jpg" alt="Lisa">
+          <div class="info">
+            <p class="nombre">Lisa</p>
+            <p class="categoria">Artista</p>
+          </div>
+        </div>
+      </div>      
      </div>
      <div class="content">
        <section>
@@ -125,6 +150,40 @@
     </div>
   </div>
 
+  <div id="modalInicio" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Bienvenido a la página de Inicio</p>
+    </div>
+  </div>
+  
+  <div id="modalBuscar" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Aquí puedes buscar contenido</p>
+    </div>
+  </div>
+  
+  <div id="modalLibreria" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Tu biblioteca de música y videos</p>
+    </div>
+  </div>
+  
+  <div id="modalCrear" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Crea una nueva playlist</p>
+    </div>
+  </div>
+  
+  <div id="modalFavoritos" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Tus videos favoritos</p>
+    </div>
+  </div>  
 
   <script>
     console.log("JavaScript cargado correctamente");

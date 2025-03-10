@@ -21607,6 +21607,46 @@ html, body {
 .layout .sidebar .sidebar-item .button p {
   font-size: 20px;
 }
+.layout .sidebar .artists {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: -35px;
+  max-height: calc(100vh - 50px);
+}
+.layout .sidebar .artists .artist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 6px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.layout .sidebar .artists .artist-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.layout .sidebar .artists .artist-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.layout .sidebar .artists .artist-item .info {
+  display: flex;
+  flex-direction: column;
+}
+.layout .sidebar .artists .artist-item .info .nombre {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+}
+.layout .sidebar .artists .artist-item .info .categoria {
+  font-size: 12px;
+  color: rgb(179, 179, 179);
+  margin: 0;
+}
 .layout .sidebar .bar {
   width: 240px;
   height: 1px;
@@ -21835,9 +21875,14 @@ html, body {
   }
 }
 nav {
+  position: fixed;
   background-color: transparent !important;
-  padding-left: 10px;
-  height: 70px !important;
+  padding: 10px 20px;
+  height: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 nav .navbar-brand {
   display: flex;
@@ -21846,7 +21891,7 @@ nav .navbar-brand {
 }
 nav .navbar-brand h2 {
   margin: 0;
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold;
   color: #1ED760;
 }
@@ -21854,20 +21899,72 @@ nav .navbar-brand img {
   height: 50px;
   width: auto;
 }
+nav .navbar-end {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+nav .navbar-end .navbar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 nav .navbar-end .navbar-item input {
   width: 340px;
+  max-width: 100%;
   border-radius: 20px;
   box-shadow: 0px 1px 6px rgba(28, 215, 95, 0.4);
   background: linear-gradient(to right, rgba(31, 31, 31, 0.7), rgba(186, 186, 186, 0.3)) !important;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
+  padding: 8px 15px;
+  border: none;
+  font-size: 16px;
 }
 nav .navbar-end .navbar-item input:focus {
   border-color: #1ED760;
 }
 nav .navbar-end .navbar-item img {
-  height: 50px;
-  width: auto;
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0;
+  }
+  nav .navbar-brand {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  nav .navbar-brand h2 {
+    font-size: 22px;
+  }
+  nav .navbar-end {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+  nav .navbar-end .navbar-item {
+    flex-direction: row; /* Alinea los elementos en una fila */
+    justify-content: center; /* Centra los elementos */
+    align-items: center;
+    width: 90%;
+    gap: 8px;
+  }
+  nav .navbar-end .navbar-item input {
+    width: 40%; /* Ajusta el tamaño del buscador */
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+  nav .navbar-end .navbar-item img {
+    height: 30px;
+    width: 30px;
+  }
 }
 
 .modal {
@@ -21910,7 +22007,8 @@ nav .navbar-end .navbar-item img {
   padding: 20px;
   text-align: center;
   border-radius: 10px;
-  width: 1050px;
+  max-width: 1075px;
+  width: 1180px;
   margin-top: 20px;
 }
 .genres-section h2 {
@@ -21957,6 +22055,34 @@ nav .navbar-end .navbar-item img {
     align-items: center !important;
     width: 390px;
   }
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  width: 50%;
+  overflow: hidden;
+}
+
+.close {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=styles.css.map */

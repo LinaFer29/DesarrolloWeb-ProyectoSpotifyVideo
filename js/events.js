@@ -166,3 +166,49 @@ function changeVideo(videoId) {
 }
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  function abrirModal(idModal) {
+    document.getElementById(idModal).style.display = "flex";
+  }
+
+  function cerrarModal(idModal) {
+    document.getElementById(idModal).style.display = "none";
+  }
+
+  // Asigna eventos a los botones
+  document.getElementById("btnInicio").addEventListener("click", function () {
+    abrirModal("modalInicio");
+  });
+
+  document.getElementById("btnBuscar").addEventListener("click", function () {
+    abrirModal("modalBuscar");
+  });
+
+  document.getElementById("btnLibreria").addEventListener("click", function () {
+    abrirModal("modalLibreria");
+  });
+
+  document.getElementById("btnCrear").addEventListener("click", function () {
+    abrirModal("modalCrear");
+  });
+
+  document.getElementById("btnFavoritos").addEventListener("click", function () {
+    abrirModal("modalFavoritos");
+  });
+
+  // Cerrar modal cuando se haga clic en la "X"
+  document.querySelectorAll(".close").forEach(function (btnCerrar) {
+    btnCerrar.addEventListener("click", function () {
+      cerrarModal(this.parentElement.parentElement.id);
+    });
+  });
+
+  // Cerrar modal si se hace clic fuera de él
+  window.addEventListener("click", function (event) {
+    document.querySelectorAll(".modal").forEach(function (modal) {
+      if (event.target === modal) {
+        cerrarModal(modal.id);
+      }
+    });
+  });
+});

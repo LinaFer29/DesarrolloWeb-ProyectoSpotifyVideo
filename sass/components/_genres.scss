@@ -24,8 +24,8 @@ $text-color: white;
     padding: 20px;
     text-align: center;
     border-radius: 10px; 
-
-    width: 1050px;
+    max-width: 1075px;
+    width: 1180px;
     margin-top: 20px;  
 
     h2 {
@@ -42,7 +42,7 @@ $text-color: white;
     }
 
     .genre-btn {
-        @include button-style;  // Aplica el mixin
+        @include button-style;  
     }
 }
 
