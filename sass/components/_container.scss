@@ -7,7 +7,7 @@ $border-radius: 5px;
     backdrop-filter: blur($blur);
 }
 
-@mixin flex($direction: row, $gap: 0px,$justify,$align) {
+@mixin flex($direction: row, $gap: 0px, $justify, $align) {
     display: flex;
     flex-direction: $direction;
     gap: $gap;
@@ -23,7 +23,7 @@ $border-radius: 5px;
     border-radius: $border-radius;
 }
 
-@mixin swiperSlide($size: 175px) {
+@mixin swiperSlide($size: 130px) {
     width: 200px;
     height: $size;
     border-radius: $border-radius;
@@ -66,13 +66,12 @@ $border-radius: 5px;
         .sidebar-item {
             padding-top: 50px;
             padding-bottom: 20px;
-            @include flex(column, 26px,center,center);
+            @include flex(column, 26px, center, center);
 
             .button {
                 @include buttonStyle();
                 @include glassmorphism($card-bg);
-                @include flex(row, 10px,left,center);
-
+                @include flex(none, 10px,left,center);
                 img {
                     height: 31px;
                     width: auto;
@@ -121,7 +120,7 @@ $border-radius: 5px;
                 // display: flex;
                 // align-items: center;
                 // gap: 15px;
-                @include flex(row,15px,none,center);
+                @include flex(row, 15px, none, center);
                 padding-right: 30px;
             }
 
@@ -234,7 +233,7 @@ $border-radius: 5px;
 @media (max-width: 1241px) {
 
     .content {
-        margin-top: 70px;
+        // margin-top: 70px;
         width: 100%;
         flex-wrap: wrap;
         overflow: hidden; // Evita el desbordamiento horizontal
@@ -258,7 +257,7 @@ $border-radius: 5px;
 
 }
 
-@media (max-width: 470px){
+@media (max-width: 470px) {
 
     .layout {
         display: flex;
@@ -269,6 +268,7 @@ $border-radius: 5px;
 
         .sidebar {
             height: 90px;
+
             .sidebar-item {
                 flex-direction: row; // Cambia de columna a fila
                 padding: 0;
@@ -290,7 +290,7 @@ $border-radius: 5px;
                 background: transparent !important;
                 backdrop-filter: none !important;
                 flex-direction: column; // Imagen arriba del texto
-                align-items: center ;
+                align-items: center;
                 justify-content: center;
                 padding-left: 5px !important;
                 padding-right: 5px;
@@ -311,29 +311,29 @@ $border-radius: 5px;
             }
         }
 
-    .content {
-        margin-top: 70px;
+        .content {
+            margin-top: 70px;
 
-        width: 100%;
-        max-width: 400px !important;
-        flex-wrap: wrap;
-        overflow: hidden; // Evita el desbordamiento horizontal
-        display: flex;
-        flex-direction: column;
-        align-items: center !important; // Centra el contenido
+            width: 100%;
+            max-width: 400px !important;
+            flex-wrap: wrap;
+            overflow: hidden; // Evita el desbordamiento horizontal
+            display: flex;
+            flex-direction: column;
+            align-items: center !important; // Centra el contenido
 
-        .swiper {
+            .swiper {
 
-            max-width: 390px !important; // Ajusta el carrusel dentro del contenido
-            margin-right: 0 !important;
-            overflow: hidden;
+                max-width: 390px !important; // Ajusta el carrusel dentro del contenido
+                margin-right: 0 !important;
+                overflow: hidden;
 
-            .swiper-slide {
-                height: 100px !important;
+                .swiper-slide {
+                    height: 100px !important;
+                }
+
             }
-
         }
-    }
 
-}
+    }
 }

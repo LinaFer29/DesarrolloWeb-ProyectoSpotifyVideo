@@ -21595,7 +21595,7 @@ html, body {
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   display: flex;
-  flex-direction: row;
+  flex-direction: none;
   gap: 10px;
   justify-content: left;
   align-items: center;
@@ -21650,7 +21650,7 @@ html, body {
 }
 .layout .content .swiper .swiper-slide {
   width: 200px;
-  height: 175px;
+  height: 130px;
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.15);
   display: flex;
@@ -21755,7 +21755,6 @@ html, body {
 }
 @media (max-width: 1241px) {
   .content {
-    margin-top: 70px;
     width: 100%;
     flex-wrap: wrap;
     overflow: hidden;
