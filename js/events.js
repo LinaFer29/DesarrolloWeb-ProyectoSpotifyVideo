@@ -2,10 +2,9 @@ console.log("✅ events.js cargado correctamente");
 
 //import Swiper from "swiper";
 //import "swiper/css";
-
+//Gestiona la apertura y cierre de modales en la página.
 function openAndCloseModal() {
 
-  // Functions to open and close a modal
   function openModal($el) {
     $el.classList.add('is-active');
   }
@@ -20,7 +19,7 @@ function openAndCloseModal() {
     });
   }
 
-  // Add a click event on buttons to open a specific modal
+  // Agrega un evento de clic en los botones para abrir un modal específico
   (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
     const modal = $trigger.dataset.target;
     const $target = document.getElementById(modal);
@@ -30,7 +29,7 @@ function openAndCloseModal() {
     });
   });
 
-  // Add a click event on various child elements to close the parent modal
+  // Agrega un evento de clic en varios elementos secundarios para cerrar el modal principal
   (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
     const $target = $close.closest('.modal');
 
@@ -39,7 +38,7 @@ function openAndCloseModal() {
     });
   });
 
-  // Add a keyboard event to close all modals
+  // Agrega un evento de teclado para cerrar todos los modales
   document.addEventListener('keydown', (event) => {
     if (event.key === "Escape") {
       closeAllModals();
@@ -60,13 +59,14 @@ function loadSwiper() {
     },
     autoplay: {
       delay: 2000, // Tiempo entre cada desplazamiento automático
-      //disableOnInteraction: false, // 🔹 Permite que siga en auto después de un clic
+      //disableOnInteraction: false, //Permite que siga en auto después de un clic
     },
   });
 
   console.log("Swiper cargado correctamente", swiper);
 }
 
+// Lee Json para cargar los videos de forma dinamica al los carruseles
 async function loadCarrouselContent() {
   console.log("cargando videos")
 
@@ -113,6 +113,7 @@ async function loadCarrouselContent() {
 
 }
 
+//Gestiona la apertura y cierre de un modal de video cuando el usuario hace clic en una imagen de un carrusel Swiper.
 function openAndCloseVideoModal() {
   console.log("openAndCloseVideoModal");
 
@@ -162,6 +163,9 @@ function cerrarModal(idModal) {
   document.getElementById(idModal).style.display = "none";
 }
 
+/* Asigna eventos para abrir y cerrar modales con botones específicos.
+ - Cada botón abre su respectivo modal según su ID.
+ - Los botones de cierre con clase `.close` cierran el modal correspondiente. */
 function openAndCloseButtonsModal() {
   // Asigna eventos a los botones
   document.getElementById("btnInicio").addEventListener("click", function () {
@@ -203,7 +207,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 let player;
-// Cargar la API de YouTube
+// Crear Reproductor la API de YouTube
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('video-player', {
     height: '360',
